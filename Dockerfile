@@ -7,5 +7,9 @@ ADD automate-branch-rules.py /automate-branch-rules.py
 ADD config.py /config.py
 ADD CODEOWNERS /CODEOWNERS
 ADD codeowners.py /codeowners.py
+ENV ORG $ORG
+ENV REPO $REPO
+ENV PAT $PAT
+ENV EXEC $EXEC
 RUN pip install -r /requirements.txt
-CMD ["python","/automate-branch-rules.py"]
+CMD ["python","/automate-branch-rules.py -o $ORG -r $REPO -p $PAT -e $EXEC"]
