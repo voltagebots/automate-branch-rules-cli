@@ -30,4 +30,4 @@ jobs:
         ORG: gluwa
         REPO: prometheus-config
         PAT: ${{ secrets.pat }}
-        EXEC: O
+        EXEC: D
