@@ -22,10 +22,11 @@ def add_default(pat):
     for repo in git.get_organization(org_name).get_repos():
         for branch_name in branches:
             try:
-                repo.get_branch(branch_name)
+                default_branch = repo.default_branch
+                repo.get_branch(default_branch)
             except GithubException:
                 print("Error:", repo.name, ",",
-                      branch_name, "-->", sys.exc_info()[1])
+                      default_branch, "-->", sys.exc_info()[1])
             else:
                 default_branch = repo.default_branch
                 branch = repo.get_branch(default_branch)
